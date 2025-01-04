@@ -32,8 +32,8 @@ def main():
     learning_rate = 1e-3
     learning_rate_decay = 0.3
     cfg = dict(device=device, learning_rate=learning_rate, learning_rate_decay=learning_rate_decay,
-               last_observe=30, epochs=12, print_every=100, save_every=2, batch_size=1,
-               data_locate="/home/tangx2/storage/projects/git/argoverse-api/train/data_5000", save_path="./model_ckpt/", # /workspace/argoverse-api/train/data 
+               last_observe=15, epochs=12, print_every=100, save_every=2, batch_size=1,
+               data_locate="/home/miakho/code/VectorNet/data/forecasting_dataset/train", save_path="./model_ckpt/", # /workspace/argoverse-api/train/data 
                log_file="./log.txt", tensorboard_path="runs/train_visualization")
 
     pp = pprint.PrettyPrinter(indent=4)
