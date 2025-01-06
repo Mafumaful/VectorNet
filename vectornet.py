@@ -55,11 +55,12 @@ class VectorNet(nn.Module):
         predict_list = []
         for i in range(batch_size):
             polyline_list = []
+            input_trajectory = trajectory_batch[i, :self.cfg['last_observe']]
             # if city_name_list[i] == 'PIT':
             #     vectormap_list = PITmap_list[i]
             # else:
             #     vectormap_list = MIAmap_list[i]
-            polyline_list.append(self.traj_subgraphnet(trajectory_batch[i, :self.cfg['last_observe']]).unsqueeze(0)) # 将轨迹前last_observe个点数据(30,6)放入traj_subgraphnet
+            polyline_list.append(self.traj_subgraphnet(input_trajectory).unsqueeze(0)) # 将轨迹前last_observe个点数据(30,6)放入traj_subgraphnet
 
             # 每个batch里有多个vec_map（轨迹点周围的地图），每个vec_map都是(18,8)
             for vec_map in vectormap_batch:
