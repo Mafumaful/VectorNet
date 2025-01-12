@@ -69,7 +69,7 @@ class ArgoverseForecastDataset(torch.utils.data.Dataset):
         trajectory_feature = self.normalize_coordinate(trajectory_feature, city_name)  # 
         # np.savetxt('traj.txt',trajectory_feature,fmt='%0.8f')
 
-         # 轨迹特征为6维[x1,y1,x2,y2,TIMESTAMP,trajectory_id]
+        # 轨迹特征为6维[x1,y1,x2,y2,TIMESTAMP,trajectory_id]
         # self.traj_feature = torch.from_numpy(np.hstack((trajectory_feature,
         #                                                 extra_fields['TIMESTAMP'].reshape(-1, 1),
         #                                                 # extra_fields['OBJECT_TYPE'].reshape(-1, 1),
@@ -128,7 +128,7 @@ class ArgoverseForecastDataset(torch.utils.data.Dataset):
         # mapfeature = np.vstack(mf)
         # np.savetxt('map.txt',mapfeature,fmt='%0.8f')
         # sys.exit()
-        return self.traj_feature, self.map_feature  # 返回的是一条5s轨迹向量(49,6)和中心点周围的n个地图向量(n,18,8)
+        return self.traj_feature, self.map_feature  # 返回的是一条5s轨迹向量(20,6)和中心点周围的n个地图向量(n,18,8)
 
     def get_trajectory(self, index):
         seq_path = self.afl.seq_list[index]

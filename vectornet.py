@@ -22,7 +22,7 @@ class VectorNet(nn.Module):
         self.map_subgraphnet = SubgraphNet(map_features)
         self.graphnet = GraphAttentionNet()
         # decoder
-        prediction_step = 2*(49 - self.cfg['last_observe'])  # TODO
+        prediction_step = 2*(19 - self.cfg['last_observe'])  # TODO
         self.fc = nn.Linear(64, 64)
         nn.init.kaiming_normal_(self.fc.weight)
         self.layer_norm = nn.LayerNorm(64)
@@ -80,7 +80,7 @@ class VectorNet(nn.Module):
             decoded_data_perstep = self.fc2(F.relu(self.layer_norm(self.fc(out[0].unsqueeze(0))))).view(1, -1, 2)  # corresponding one, [1,19,2]
             decoded_data = torch.cumsum(decoded_data_perstep, dim=0)  # parameterized as per-step coordinate offsets
             predict_list.append(decoded_data)
-        predict_batch = torch.cat(predict_list, dim=0)      # 纵向拼接，torch.Size([1, 19, 2])
+        predict_batch = torch.cat(predict_list, dim=0)      # 纵向拼接，torch.Size([1, 10, 2])
         loss = self.loss_fn(predict_batch, label)
         if np.isnan(loss.item()):
             raise Exception("Loss ERROR!")

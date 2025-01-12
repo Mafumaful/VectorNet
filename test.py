@@ -74,7 +74,7 @@ def main():
         device = torch.device('cpu')
 
     cfg = dict(device=device, last_observe=30, batch_size=1, predict_step=19,
-               data_locate="/home/tangx2/storage/projects/git/argoverse-api/train/data_5000", save_path="./model_ckpt/inference/",
+               data_locate="/home/miakho/code/VectorNet/data/forecasting_dataset/train", save_path="./model_ckpt/inference/",
                model_path="./model_ckpt/model_final.pth")
 
     pp = pprint.PrettyPrinter(indent=4)

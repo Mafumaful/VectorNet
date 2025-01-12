@@ -8,7 +8,7 @@ import os
 import numpy as np
 
 ##set root_dir to the correct path to your dataset folder
-root_dir = '/home/tangx2/storage/projects/git/argoverse-api/train/data_10/'
+root_dir = '/home/miakho/code/VectorNet/data/forecasting_dataset/train'
 
 afl = ArgoverseForecastingLoader(root_dir)
 
@@ -29,7 +29,7 @@ print('Total number of sequences:',len(afl))
 
 avm = ArgoverseMap()
 
-obs_len = 29
+obs_len = 10
 
 index = 1
 seq_path = afl.seq_list[index]

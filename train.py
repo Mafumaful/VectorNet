@@ -29,10 +29,11 @@ def main():
         device = torch.device('cpu')
         RUN_PARALLEL = False
 
+    print(f'device : {device}')
     learning_rate = 1e-3
     learning_rate_decay = 0.3
     cfg = dict(device=device, learning_rate=learning_rate, learning_rate_decay=learning_rate_decay,
-               last_observe=15, epochs=12, print_every=100, save_every=2, batch_size=1,
+               last_observe=10, epochs=12, print_every=100, save_every=2, batch_size=1,
                data_locate="/home/miakho/code/VectorNet/data/forecasting_dataset/train", save_path="./model_ckpt/", # /workspace/argoverse-api/train/data 
                log_file="./log.txt", tensorboard_path="runs/train_visualization")
 

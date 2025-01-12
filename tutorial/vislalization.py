@@ -29,7 +29,7 @@ def show_argoverse_map():
 
 def print_forecasting_data():
 	from argoverse.data_loading.argoverse_forecasting_loader import ArgoverseForecastingLoader
-	afl = ArgoverseForecastingLoader("/home/tangx2/storage/projects/git/argoverse-api/train/data_10")
+	afl = ArgoverseForecastingLoader("/home/miakho/code/VectorNet/data/forecasting_dataset/train")
 	seq_path = afl.seq_list[7]
 	data = afl.get(seq_path).seq_df
 	data = data[data['OBJECT_TYPE'] == 'AGENT']
