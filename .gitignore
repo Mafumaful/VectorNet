@@ -6,4 +6,4 @@ runs/*
 __pycache__/*
 model_ckpt/*
 .ipynb_checkpoints/*
-
+model_ckpt*/
